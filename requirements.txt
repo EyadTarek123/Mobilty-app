@@ -1,6 +1,10 @@
-streamlit
-streamlit-lottie
 pandas
 numpy
 scikit-learn
 joblib
+streamlit
+streamlit-lottie
+stripe
+joblib
+numpy
+requests
