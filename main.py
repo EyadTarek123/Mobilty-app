@@ -2,37 +2,11 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 import requests 
 import streamlit as st
-import stripe
 from streamlit_lottie import st_lottie  
-
-stripe.api_key = "sk_test_XXXXXXX"  
+  
 st.title("Welcome to Mobility App 💻 | مرحبا بك في تطبيق Mobility App")
 if "paid" not in st.session_state:
     st.session_state.paid = False
-
-
-if not st.session_state.paid:
-    st.write("Before using the app, please pay $5 | قبل ما تستخدم التطبيق، ادفع 5$")
-    
-    if st.button("Pay Now | ادفع الآن"):
-
-        session = stripe.checkout.Session.create(
-            payment_method_types=["card"],
-            line_items=[{
-                "price_data": {
-                    "currency": "usd",
-                    "product_data": {
-                        "name": "Access to Mobility App | الوصول لتطبيق Mobility App"
-                    },
-                    "unit_amount": 500,  
-                },
-                "quantity": 1,
-            }],
-            mode="payment",
-            success_url="https://your-streamlit-app-link/?success=true",
-            cancel_url="https://your-streamlit-app-link/?canceled=true",
-        )
-        st.write(f"[Click here to pay | اضغط هنا للدفع]({session.url})")
 else:
     st.write("✅ Thanks for paying! Now you can use the app | شكراً لدفعك، الآن يمكنك استخدام التطبيق")
     
@@ -116,9 +90,9 @@ st.markdown(f"""
 
 col1, col2, col3 = st.columns([1, 1, 2])
 with col1:
-    st.image("dembo.jpeg", width=200)
+    st.image("C:\Users\Admin\3D Objects\Capture.PNG", width=200)
 with col2:
-    st.image("mahatech.jpeg", width=200)
+    st.image("C:\Users\Admin\3D Objects\Capture11.PNG", width=200)
 with col3:
     lottie_url = "https://assets10.lottiefiles.com/packages/lf20_1pxqjqps.json"
     lottie_animation = load_lottieurl(lottie_url)
