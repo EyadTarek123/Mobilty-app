@@ -6,7 +6,4 @@ scikit-learn>=1.8
 joblib>=1.5
 requests>=2.32
 stripe>=14.4
-rich>=14
-markdown-it-py>=4
-mdurl>=0.1
 pygments>=2.19
