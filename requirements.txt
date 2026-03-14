@@ -9,3 +9,5 @@ stripe>=14.4
 pygments>=2.19
 matplotlib
 Pillow
+main.py
+requirements.txt
