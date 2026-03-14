@@ -10,37 +10,3 @@ stripe
 streamlit==1.19.0
 altair==4.2.2
 python-3.11.8
-
-# ------------------------------
-# Eydo Streamlit Setup Script
-# ------------------------------
-
-# 1️⃣ امسح venv القديم لو موجود
-if (Test-Path -Path ".\venv") {
-    Write-Host "Deleting old venv..."
-    Remove-Item -Recurse -Force ".\venv"
-}
-
-# 2️⃣ انشئ venv جديد
-Write-Host "Creating new virtual environment..."
-python -m venv venv
-
-# 3️⃣ فعل الـ venv
-Write-Host "Activating virtual environment..."
-.\venv\Scripts\Activate.ps1
-
-# 4️⃣ حدث pip
-Write-Host "Upgrading pip..."
-python -m pip install --upgrade pip
-
-# 5️⃣ ثبت المكتبات من requirements.txt
-if (Test-Path -Path ".\requirements.txt") {
-    Write-Host "Installing dependencies..."
-    pip install -r requirements.txt
-} else {
-    Write-Host "requirements.txt not found!"
-}
-
-# 6️⃣ شغل Streamlit
-Write-Host "Running Streamlit app..."
-python -m streamlit run main.py
