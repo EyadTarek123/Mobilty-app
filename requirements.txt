@@ -7,3 +7,5 @@ joblib>=1.5
 requests>=2.32
 stripe>=14.4
 pygments>=2.19
+matplotlib
+Pillow
