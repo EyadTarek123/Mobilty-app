@@ -4,6 +4,7 @@ scikit-learn
 joblib
 streamlit
 streamlit-lottie
+altair==4.2.2
 numpy
 requests    
 stripe
