@@ -76,7 +76,7 @@ wifi = st.radio("WiFi🛜", [0, 1])
 
 if st.button('Calculate Price'):
 
-    loaded_model = joblib.load('best_svc_model.pkl')
+    loaded_model = joblib.load('pages/best_svc_model.pkl')
 
 
     prediction = loaded_model.predict([[
