@@ -8,6 +8,3 @@ scikit-learn
 joblib
 streamlit-lottie
 Pillow
-git add .
-git commit -m "fix requirements"
-git push
