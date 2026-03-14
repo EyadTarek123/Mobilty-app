@@ -74,26 +74,11 @@ else:
 st.markdown('<h2 class="custom-subtitle">Meet the Team Behind Mobility</h2>', unsafe_allow_html=True)
 
 team_col1, team_col2, team_col3, team_col4 = st.columns(4)
-
-with team_col1:
-    st.image("bibo.jpeg", width=150)
-    st.markdown('<p class="team-name">Ahmed Bahaa</p>', unsafe_allow_html=True)
-    st.markdown('<p class="team-role">Model Creator</p>', unsafe_allow_html=True)
-
-with team_col2:
-    st.image("adham.jpeg", width=150)
-    st.markdown('<p class="team-name">Adham</p>', unsafe_allow_html=True)
-    st.markdown('<p class="team-role">UI Designer</p>', unsafe_allow_html=True)
-
 with team_col3:
-    st.image("eyadd.jpeg", width=150)
+    # st.image("eyadd.jpeg", width=150)
     st.markdown('<p class="team-name">Eyad</p>', unsafe_allow_html=True)
     st.markdown('<p class="team-role">Model Creator</p>', unsafe_allow_html=True)
 
-with team_col4:
-    st.image("3omir.jpeg", width=150)
-    st.markdown('<p class="team-name">Omair</p>', unsafe_allow_html=True)
-    st.markdown('<p class="team-role">UI Designer</p>', unsafe_allow_html=True)
 
 
 st.markdown("""
