@@ -2,7 +2,7 @@
 
 if section == "Laptop":
     # كود اللابتوب هنا
-elif section == "Mobile":
+if section == "Mobile":
     # كود الموبايل هنا
 elif section == "House":
     # كود الهوس هنا
