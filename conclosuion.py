@@ -170,4 +170,3 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.write("Thanks for using our app!")
-
