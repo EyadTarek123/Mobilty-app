@@ -1,12 +1,16 @@
 # ---------------- HOUSE SECTION ----------------
 
-if section == "Laptop":
-    # كود اللابتوب هنا
-if section == "Mobile":
-    # كود الموبايل هنا
-elif section == "House":
-    # كود الهوس هنا
+section = "Mobile"
 
+if section == "Laptop":
+    # هنا تحط كود اللابتوب
+    print("Laptop section")
+elif section == "Mobile":
+    # هنا تحط كود الموبايل
+    print("Mobile section")
+elif section == "House":
+    # هنا تحط كود البيت
+    print("House section")
     st.header("🏠 Apartments in Egypt")
 
     # اختار المدينة
