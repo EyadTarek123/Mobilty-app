@@ -26,7 +26,7 @@ with col1:
     st.image("Capture.PNG", width=200)
 
 with col2:
-    st.image("dembo.jpeg", width=200)
+    st.image("Capture11.PNG", width=200)
 
 with col3:
     st_lottie(lottie_animation, height=300)
