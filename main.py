@@ -1,6 +1,6 @@
 # ---------------- HOUSE SECTION ----------------
 
-elif section == "House":
+else section == "House":
 
     st.header("🏠 Apartments in Egypt")
 
