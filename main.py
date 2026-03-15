@@ -8,8 +8,6 @@ st.title("Welcome to Mobility App 💻 | مرحبا بك في تطبيق Mobilit
 if "paid" not in st.session_state:
     st.session_state.paid = False
 else:
-    st.write("✅ Thanks for paying! Now you can use the app | شكراً لدفعك، الآن يمكنك استخدام التطبيق")
-    
     st.write("Here starts your app content | هنا يبدأ محتوى التطبيق")
     
 st.set_page_config(
