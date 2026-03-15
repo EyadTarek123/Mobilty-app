@@ -1,55 +1,85 @@
 import streamlit as st
-from streamlit_lottie import st_lottie
-import requests
 
-st.set_page_config(
-    page_title="Mobility",
-    page_icon="📱",
-    layout="wide",
+st.set_page_config(page_title="Mobility App", page_icon="📱", layout="wide")
+
+st.title("Mobility App 🌐")
+
+# اختيار القسم
+section = st.sidebar.selectbox(
+    "Choose Section | اختر القسم",
+    ["Mobile", "Laptop", "House"]
 )
 
-st.title("Welcome to Mobility App 💻 | مرحبا بك في تطبيق Mobility")
+# -------- MOBILE --------
+if section == "Mobile":
 
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
+    st.header("📱 Mobile Features")
 
-# Animation
-lottie_url = "https://assets10.lottiefiles.com/packages/lf20_1pxqjqps.json"
-lottie_animation = load_lottieurl(lottie_url)
+    camera = st.checkbox("Good Camera")
+    battery = st.checkbox("Big Battery")
+    gaming = st.checkbox("Gaming Performance")
+    cheap = st.checkbox("Cheap Price")
 
-col1, col2, col3 = st.columns([1,1,2])
+    st.subheader("Your Selection")
 
-with col1:
-    st.image("Capture.PNG", width=200)
+    if camera:
+        st.write("📷 You selected: Good Camera")
 
-with col2:
-    st.image("Capture11.PNG", width=200)
+    if battery:
+        st.write("🔋 You selected: Big Battery")
 
-with col3:
-    st_lottie(lottie_animation, height=300)
+    if gaming:
+        st.write("🎮 You selected: Gaming Performance")
 
-st.markdown("## 🚀 Discover the Future of Mobile Tech")
+    if cheap:
+        st.write("💰 You selected: Cheap Price")
 
-st.write(
-    "Mobility helps you predict phone prices using AI models and compare devices easily."
-)
 
-st.markdown("## 💡 Features")
+# -------- LAPTOP --------
+elif section == "Laptop":
 
-st.markdown("""
-- 📱 Device Comparison  
-- 📊 AI Price Prediction  
-- 🔔 Price Alerts  
-""")
+    st.header("💻 Laptop Features")
 
-st.markdown("## 💻 Laptop")
-st.write("This section analyzes laptop specifications and performance.")
+    ram = st.checkbox("16GB RAM")
+    ssd = st.checkbox("SSD Storage")
+    gpu = st.checkbox("Gaming GPU")
+    light = st.checkbox("Light Weight")
 
-st.markdown("## 🏠 House")
-st.write("Mobility technology can also help smart home systems.")
+    st.subheader("Your Selection")
 
-st.markdown("## 📊 Conclusion")
-st.write("Mobility uses AI to help users make better technology decisions.")
+    if ram:
+        st.write("⚡ 16GB RAM")
+
+    if ssd:
+        st.write("💾 SSD Storage")
+
+    if gpu:
+        st.write("🎮 Gaming GPU")
+
+    if light:
+        st.write("🪶 Light Weight Laptop")
+
+
+# -------- HOUSE --------
+elif section == "House":
+
+    st.header("🏠 House Features")
+
+    smart = st.checkbox("Smart Home")
+    security = st.checkbox("Security Cameras")
+    solar = st.checkbox("Solar Energy")
+    wifi = st.checkbox("Strong WiFi")
+
+    st.subheader("Your Selection")
+
+    if smart:
+        st.write("🏠 Smart Home Enabled")
+
+    if security:
+        st.write("📹 Security Cameras")
+
+    if solar:
+        st.write("☀️ Solar Energy")
+
+    if wifi:
+        st.write("📡 Strong WiFi")
