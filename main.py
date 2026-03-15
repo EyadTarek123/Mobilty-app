@@ -1,66 +1,69 @@
 import streamlit as st
 
-st.set_page_config(page_title="Mobility App", page_icon="📱", layout="wide")
+st.set_page_config(page_title="Mobility App", layout="wide")
 
-st.title("Mobility App 🌐")
+st.title("Mobility App 🔎")
 
 # اختيار القسم
 section = st.sidebar.selectbox(
-    "Choose Section | اختر القسم",
+    "Choose Section",
     ["Mobile", "Laptop", "House"]
 )
 
-# -------- MOBILE --------
+# اختيار الميزانية
+salary = st.sidebar.slider("Choose your budget ($)", 100, 3000, 500)
+
+# ---------------- MOBILE ----------------
 if section == "Mobile":
 
     st.header("📱 Mobile Features")
 
     camera = st.checkbox("Good Camera")
     battery = st.checkbox("Big Battery")
-    gaming = st.checkbox("Gaming Performance")
-    cheap = st.checkbox("Cheap Price")
+    gaming = st.checkbox("Gaming")
+    fast_charge = st.checkbox("Fast Charging")
+    amoled = st.checkbox("AMOLED Screen")
 
-    st.subheader("Your Selection")
+    st.subheader("Recommended Mobiles")
 
-    if camera:
-        st.write("📷 You selected: Good Camera")
+    if salary <= 300:
+        st.write("• Xiaomi Redmi Note 12")
+        st.write("• Samsung Galaxy A14")
 
-    if battery:
-        st.write("🔋 You selected: Big Battery")
+    elif salary <= 700:
+        st.write("• Samsung Galaxy S21 FE")
+        st.write("• iPhone 12")
 
-    if gaming:
-        st.write("🎮 You selected: Gaming Performance")
+    else:
+        st.write("• iPhone 14")
+        st.write("• Samsung Galaxy S23")
 
-    if cheap:
-        st.write("💰 You selected: Cheap Price")
-
-
-# -------- LAPTOP --------
+# ---------------- LAPTOP ----------------
 elif section == "Laptop":
 
     st.header("💻 Laptop Features")
 
     ram = st.checkbox("16GB RAM")
-    ssd = st.checkbox("SSD Storage")
+    ssd = st.checkbox("SSD")
     gpu = st.checkbox("Gaming GPU")
-    light = st.checkbox("Light Weight")
+    light = st.checkbox("Lightweight")
+    battery = st.checkbox("Long Battery")
 
-    st.subheader("Your Selection")
+    st.subheader("Recommended Laptops")
 
-    if ram:
-        st.write("⚡ 16GB RAM")
+    if salary <= 700:
+        st.write("• HP Pavilion")
+        st.write("• Lenovo IdeaPad 3")
 
-    if ssd:
-        st.write("💾 SSD Storage")
+    elif salary <= 1500:
+        st.write("• Dell XPS 13")
+        st.write("• MacBook Air M1")
 
-    if gpu:
-        st.write("🎮 Gaming GPU")
+    else:
+        st.write("• MacBook Pro M2")
+        st.write("• ASUS ROG Zephyrus")
 
-    if light:
-        st.write("🪶 Light Weight Laptop")
-
-
-# -------- HOUSE --------
+# ---------------- HOUSE ----------------
 elif section == "House":
 
     st.header("🏠 House Features")
@@ -69,17 +72,18 @@ elif section == "House":
     security = st.checkbox("Security Cameras")
     solar = st.checkbox("Solar Energy")
     wifi = st.checkbox("Strong WiFi")
+    automation = st.checkbox("Home Automation")
 
-    st.subheader("Your Selection")
+    st.subheader("Recommended Solutions")
 
-    if smart:
-        st.write("🏠 Smart Home Enabled")
+    if salary <= 500:
+        st.write("• Smart Lights System")
+        st.write("• Basic Security Camera")
 
-    if security:
-        st.write("📹 Security Cameras")
+    elif salary <= 1500:
+        st.write("• Smart Home Starter Kit")
+        st.write("• Google Nest System")
 
-    if solar:
-        st.write("☀️ Solar Energy")
-
-    if wifi:
-        st.write("📡 Strong WiFi")
+    else:
+        st.write("• Full Smart Home Setup")
+        st.write("• Solar + Automation System")
