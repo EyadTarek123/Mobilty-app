@@ -1,6 +1,11 @@
 # ---------------- HOUSE SECTION ----------------
 
-else section == "House":
+if section == "Laptop":
+    # كود اللابتوب هنا
+elif section == "Mobile":
+    # كود الموبايل هنا
+elif section == "House":
+    # كود الهوس هنا
 
     st.header("🏠 Apartments in Egypt")
 
