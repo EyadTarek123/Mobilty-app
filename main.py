@@ -4,41 +4,64 @@ st.set_page_config(page_title="Mobility App", layout="wide")
 
 st.title("Mobility App 🔎")
 
-# اختيار القسم
 section = st.sidebar.selectbox(
     "Choose Section",
     ["Mobile", "Laptop", "House"]
 )
 
-# اختيار الميزانية
-salary = st.sidebar.slider("Choose your budget ($)", 100, 3000, 500)
+budget = st.sidebar.number_input("Enter your budget ($)", min_value=0)
 
-# ---------------- MOBILE ----------------
+# ---------------- MOBILE DATA ----------------
+
+mobiles = [
+{"name":"iPhone 15","price":1100,"camera":True,"battery":True,"gaming":True},
+{"name":"iPhone 14","price":900,"camera":True,"battery":True,"gaming":True},
+{"name":"Samsung S23","price":850,"camera":True,"battery":True,"gaming":True},
+{"name":"Samsung A54","price":400,"camera":True,"battery":True,"gaming":False},
+{"name":"Xiaomi Redmi Note 12","price":250,"camera":True,"battery":True,"gaming":False},
+{"name":"Xiaomi Poco X5","price":320,"camera":True,"battery":True,"gaming":True},
+{"name":"Realme GT","price":500,"camera":True,"battery":True,"gaming":True},
+{"name":"Oppo Reno 8","price":550,"camera":True,"battery":True,"gaming":False},
+{"name":"Google Pixel 7","price":700,"camera":True,"battery":True,"gaming":True},
+{"name":"OnePlus 11","price":750,"camera":True,"battery":True,"gaming":True},
+]
+
+# ---------------- HOUSE DATA ----------------
+
+houses = [
+{"name":"Apartment in Cairo","price":80000,"room":"Bedroom","wifi":True,"smart":True},
+{"name":"Apartment in Giza","price":60000,"room":"Living Room","wifi":True,"smart":False},
+{"name":"Apartment in Alexandria","price":50000,"room":"Kitchen","wifi":False,"smart":False},
+{"name":"Apartment in Nasr City","price":90000,"room":"Bedroom","wifi":True,"smart":True},
+]
+
+# ---------------- MOBILE SECTION ----------------
+
 if section == "Mobile":
 
     st.header("📱 Mobile Features")
 
-    camera = st.checkbox("Good Camera")
+    camera = st.checkbox("High Camera")
     battery = st.checkbox("Big Battery")
-    gaming = st.checkbox("Gaming")
-    fast_charge = st.checkbox("Fast Charging")
-    amoled = st.checkbox("AMOLED Screen")
+    gaming = st.checkbox("Gaming Performance")
 
     st.subheader("Recommended Mobiles")
 
-    if salary <= 300:
-        st.write("• Xiaomi Redmi Note 12")
-        st.write("• Samsung Galaxy A14")
+    for phone in mobiles:
 
-    elif salary <= 700:
-        st.write("• Samsung Galaxy S21 FE")
-        st.write("• iPhone 12")
+        if phone["price"] <= budget:
 
-    else:
-        st.write("• iPhone 14")
-        st.write("• Samsung Galaxy S23")
+            if camera and not phone["camera"]:
+                continue
+            if battery and not phone["battery"]:
+                continue
+            if gaming and not phone["gaming"]:
+                continue
 
-# ---------------- LAPTOP ----------------
+            st.write(f"📱 {phone['name']} - ${phone['price']}")
+
+# ---------------- LAPTOP SECTION ----------------
+
 elif section == "Laptop":
 
     st.header("💻 Laptop Features")
@@ -46,44 +69,43 @@ elif section == "Laptop":
     ram = st.checkbox("16GB RAM")
     ssd = st.checkbox("SSD")
     gpu = st.checkbox("Gaming GPU")
-    light = st.checkbox("Lightweight")
-    battery = st.checkbox("Long Battery")
+
+    laptops = [
+    {"name":"MacBook Air M1","price":1000},
+    {"name":"Dell XPS 13","price":1200},
+    {"name":"HP Pavilion","price":700},
+    {"name":"ASUS ROG","price":1800},
+    ]
 
     st.subheader("Recommended Laptops")
 
-    if salary <= 700:
-        st.write("• HP Pavilion")
-        st.write("• Lenovo IdeaPad 3")
+    for laptop in laptops:
+        if laptop["price"] <= budget:
+            st.write(f"💻 {laptop['name']} - ${laptop['price']}")
 
-    elif salary <= 1500:
-        st.write("• Dell XPS 13")
-        st.write("• MacBook Air M1")
+# ---------------- HOUSE SECTION ----------------
 
-    else:
-        st.write("• MacBook Pro M2")
-        st.write("• ASUS ROG Zephyrus")
-
-# ---------------- HOUSE ----------------
 elif section == "House":
 
-    st.header("🏠 House Features")
+    st.header("🏠 Choose Room in the Apartment")
 
+    room = st.selectbox(
+        "Choose the place in the apartment",
+        ["Bedroom","Kitchen","Living Room"]
+    )
+
+    wifi = st.checkbox("WiFi Available")
     smart = st.checkbox("Smart Home")
-    security = st.checkbox("Security Cameras")
-    solar = st.checkbox("Solar Energy")
-    wifi = st.checkbox("Strong WiFi")
-    automation = st.checkbox("Home Automation")
 
-    st.subheader("Recommended Solutions")
+    st.subheader("Available Apartments")
 
-    if salary <= 500:
-        st.write("• Smart Lights System")
-        st.write("• Basic Security Camera")
+    for house in houses:
 
-    elif salary <= 1500:
-        st.write("• Smart Home Starter Kit")
-        st.write("• Google Nest System")
+        if house["room"] == room:
 
-    else:
-        st.write("• Full Smart Home Setup")
-        st.write("• Solar + Automation System")
+            if wifi and not house["wifi"]:
+                continue
+            if smart and not house["smart"]:
+                continue
+
+            st.write(f"🏠 {house['name']} - Price: ${house['price']}")
