@@ -90,7 +90,7 @@ st.markdown(f"""
 
 col1, col2, col3 = st.columns([1, 1, 2])
 with col1:
-    st.image("C:\Users\Admin\3D Objects\Capture.PNG", width=200)
+    st.image("Capture.PNG", width=200))
 with col2:
     st.image("C:\Users\Admin\3D Objects\Capture11.PNG", width=200)
 with col3:
